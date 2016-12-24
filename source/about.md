@@ -28,3 +28,6 @@ make it better over time.
 
 [![CIRCL](https://www.circl.lu/assets/images/logo.png)](https://www.circl.lu/)
 
+# Contact
+
+Don't hesitate to contact the cve-search team if you want to support us or share your thoughts about the project. info(AT)cve-search.org

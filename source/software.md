@@ -44,6 +44,8 @@ To install or use a plugin, check the [Plugins written for CVE-Search ](https://
 
 PyCVESearch is an easy to use wrapper around cve-search, defaulting on [https://cve.circl.lu API](https://cve.circl.lu).
 
+To install or use, check the [PyCVESearch GitHub repository](https://github.com/cve-search/PyCVESearch).
+
 # Data feeds
 
 - [Vulnerability Information Aggregator for CVEs  - JSON](https://www.cve-search.org/feeds/via4.json) - updated: daily

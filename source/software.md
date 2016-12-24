@@ -25,6 +25,21 @@ Requirements: Python 3 and MongoDB
 
 To install or use, check the [cve-search GitHub repository](https://github.com/cve-search/cve-search).
 
+## cve-search plugins
+
+cve-search plugins include new features to extend the functionalities in cve-search.
+
+ * **bookmarks** - Bookmark certain CVE's for later reference
+ * **MISP** - Enrich your CVE-Search instance with [MISP](http://www.misp-project.org/) information
+ * **notes** - Allow users to add notes to a CVE
+ * **Reporting** - Make queries on the data and export them to a CSV file
+ * **seen** - Keep track of all the CVEs you've already seen in the past
+ * **sendMail** - Easily send a mail with the CVE info to a specified mail address
+ * **team_collaboration** - Similar to `seen`, but on group level
+ * **LDAP** - Authenticate users over LDAP
+
+To install or use a plugin, check the [Plugins written for CVE-Search ](https://github.com/cve-search/Plugins).
+
 ## PyCVESearch
 
 PyCVESearch is an easy to use wrapper around cve-search, defaulting on [https://cve.circl.lu API](https://cve.circl.lu).

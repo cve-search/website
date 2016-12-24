@@ -1,15 +1,15 @@
 
 # SEO settings
-title: Simplest
-description: "A free Jekyll theme for download"
-keywords: "Jekyll, theme, free, download, SEO, blog, web"
-url: http://nandomoreira.me
-baseurl: "/simplest"
-# baseurl: null
+title: cve-search - tool-set to perform local searches for known vulnerabilities
+description: "cve-search is a tool to import CVE (Common Vulnerabilities and Exposures) and CPE (Common Platform Enumeration) into a MongoDB to facilitate search and processing of CVEs."
+keywords: "cve, cve-search, vulnerability, software vulnerability, vulnerability assessment, cpe, software vulnerabilities"
+url: https://www.cve-search.org
+#baseurl: "/"
+baseurl: null
 
-google_analytics: UA-52446115-1
-repo: http://github.com/nandomoreirame/simplest
-disqus_shortname: "nandothemes"
+#google_analytics: UA-52446115-1
+#repo: http://github.com/cve-search
+#disqus_shortname: "nandothemes"
 
 # Build settings
 permalink   : /:year/:title/
@@ -18,7 +18,7 @@ highlighter : pygments
 
 paginate: 4
 paginate_path: "/page/:num/"
-comments: true
+#comments: true
 
 source: source
 destination: _site
@@ -35,16 +35,16 @@ author:
   bio      : "Enthusiast performance, responsive design and usability, always looking for the best project and good coffee."
   thumb    : /images/author.jpg
   email    : nandomoreira.me@gmail.com
-  url      : http://nandomoreira.me
-  github   : http://github.com/nandomoreirame
-  twitter  : http://twitter.com/nandomoreirame
-  facebook : http://facebook.com/fernando.dev
-  linkedin : http://linkedin.com/in/nandomoreirame
+  url      : http://
+  github   : http://github.com/cve-search
+#  twitter  : http://twitter.com/nandomoreirame
+#  facebook : http://facebook.com/fernando.dev
+#  linkedin : http://linkedin.com/in/nandomoreirame
 
 # social settings
-og_locale: "pt_BR"
-twitter_card: "summary_large_image"
-twitter_site: "@nandomoreirame"
+#og_locale: "pt_BR"
+#twitter_card: "summary_large_image"
+#twitter_site: "@nandomoreirame"
 
 gems:
   - bourbon

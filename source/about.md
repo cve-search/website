@@ -4,8 +4,27 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+[cve-search project](https://github.com/cve-search/) is a set of tools to import CVE (Common Vulnerabilities and Exposures) and CPE (Common Platform Enumeration) to facilitate search and processing of CVEs.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+The main objective of the software is to avoid doing direct and public lookup into the public CVE databases. This is usually faster to do local lookups and limits your sensitive queries via the Internet.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+cve-search includes a back-end to store vulnerabilities and related information, an intuitive web interface for search and managing vulnerabilities, a series of tools to query the system and a web API interface.
+
+
+## Team and history
+
+cve-search started a simple script written by Wim Remes to fetch CVE from MITRE and put these in a database. Alexandre Dulaunoy took over
+the development of the project and the software gradually increased to a usable tool-set to handle vulnerabilities. Then Pieter-Jan Moreels joined
+the cve-search project adding a complete web interface and many new features. Many contributors proposed changes and pull-requests to cve-search to
+make it better over time.
+
+## Core team
+
+* Alexandre Dulaunoy - [@adulau](https://twitter.com/adulau)
+* Pieter-Jan Moreels - [@pidgeyL](https://twitter.com/pidgeyL)
+* Raphael Vinot - [@rafi0t](https://twitter.com/rafi0t)
+
+### Sponsors
+
+[![CIRCL](https://www.circl.lu/assets/images/logo.png)](https://www.circl.lu/)
+

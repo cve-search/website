@@ -45,13 +45,13 @@ The HTTP API outputs JSON.
 To get a JSON with all the vendors:
 
 ~~~
-curl http://cve.circl.lu/api/browse
+curl https://cve.circl.lu/api/browse
 ~~~
 
 To get a JSON with all the products associated to a vendor:
 
 ~~~
-curl http://cve.circl.lu/api/browse/microsoft
+curl https://cve.circl.lu/api/browse/microsoft
 ~~~
 
 ### Browse CVEs per vendor/product
@@ -59,7 +59,7 @@ curl http://cve.circl.lu/api/browse/microsoft
 To get a JSON with all the vulnerabilities per vendor and a specific product:
 
 ~~~
-curl http://cve.circl.lu/api/search/microsoft/office
+curl https://cve.circl.lu/api/search/microsoft/office
 ~~~
 
 ### Get CVE per CVE-ID
@@ -67,7 +67,7 @@ curl http://cve.circl.lu/api/search/microsoft/office
 To get a JSON of a specific CVE ID:
 
 ~~~
-curl http://cve.circl.lu/api/cve/CVE-2010-3333
+curl https://cve.circl.lu/api/cve/CVE-2010-3333
 ~~~
 
 ### Get the last updated CVEs
@@ -75,7 +75,7 @@ curl http://cve.circl.lu/api/cve/CVE-2010-3333
 To get a JSON of the last 30 CVEs including CAPEC, CWE and CPE expansions:
 
 ~~~
-curl http://cve.circl.lu/api/last
+curl https://cve.circl.lu/api/last
 ~~~
 
 ### Get more information about the current CVE database
@@ -83,6 +83,6 @@ curl http://cve.circl.lu/api/last
 To get more information about the current databases in use and when it was updated:
 
 ~~~
-curl http://cve.circl.lu/api/dbInfo
+curl https://cve.circl.lu/api/dbInfo
 ~~~
 

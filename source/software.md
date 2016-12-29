@@ -25,6 +25,8 @@ Requirements: Python 3 and MongoDB
 
 To install or use, check the [cve-search GitHub repository](https://github.com/cve-search/cve-search).
 
+![cve-search web interface]({{ site.url }}/images/cve-search-screen.png)
+
 ## cve-search plugins
 
 cve-search plugins include new features to extend the functionalities in cve-search.

@@ -30,12 +30,7 @@ sass:
 
 # Author settings
 author:
-  name     : Fernando Moreira
-  job      : Frontend Engineer
-  bio      : "Enthusiast performance, responsive design and usability, always looking for the best project and good coffee."
-  thumb    : /images/author.jpg
-  email    : nandomoreira.me@gmail.com
-  url      : http://
+  name     : cve-search core team
   github   : http://github.com/cve-search
 #  twitter  : http://twitter.com/nandomoreirame
 #  facebook : http://facebook.com/fernando.dev

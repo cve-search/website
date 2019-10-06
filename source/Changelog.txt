@@ -2,6 +2,104 @@ Changelog
 =========
 
 
+v2.4 (2019-10-06)
+-----------------
+
+Changes
+~~~~~~~
+- [search] use format as output instead of concatenation. [Alexandre
+  Dulaunoy]
+- [DatabaseLayer] cleanup. [Alexandre Dulaunoy]
+- [search] fix due to the recent change of the library interface.
+  [Alexandre Dulaunoy]
+- [cpe search] fixed for the JSON output. [Alexandre Dulaunoy]
+
+Other
+~~~~~
+- Merge branch 'janidetiger-master' [Alexandre Dulaunoy]
+- Merge branch 'master' of https://github.com/janidetiger/cve-search
+  into janidetiger-master. [Alexandre Dulaunoy]
+- Small update. [Ján Doboš]
+- Config.py optimalization. [Ján Doboš]
+- Config.py optimalization. [Ján Doboš]
+- - rework of getMongoConnection() function to correctly catch exception
+  due to changes in pymongo 2.9 and later. [Ján Doboš]
+
+  - update of getMaxLogSize(): default values should be in MB, .lower() replaced by .upper() as b,kb can be confusing when referring to Bytes
+
+  - getCVEStartYear() cleaned
+- Merge branch 'janidetiger-master' [Alexandre Dulaunoy]
+- Update table.html. [Ján Doboš]
+- Update pager.html. [Ján Doboš]
+- Update search.html. [Ján Doboš]
+- Update pager.js. [Ján Doboš]
+- Update minimal.py. [Ján Doboš]
+- Update index.py. [Ján Doboš]
+- Update db_mgmt_cpe_other_dictionary.py. [Ján Doboš]
+- Update Query.py. [Ján Doboš]
+- Update DatabaseLayer.py. [Ján Doboš]
+- Update CVEs.py. [Ján Doboš]
+- Update index.py. [Ján Doboš]
+- Update api.py. [Ján Doboš]
+- Update table.html. [Ján Doboš]
+
+  - maintain original functionality because of recent changes of return values of getCVEs function
+  - we need to access the 'cves' key of the returned dictionary
+- Update pager.html. [Ján Doboš]
+
+  complete rework of pagination
+  - now correctly calculates the total number of pages and creates correct pagination elements
+    - for pages with index close to beginning hides later pages
+    - for pages with index in the middle hides some pages in front and some in end
+    - for pages with index close to end hides pages in the beginning
+- Update filters.html. [Ján Doboš]
+
+  - addition of action="/r/0" tag
+  - if filter is set manually, then it changes the resulting data, so we want to display the first page (offset /r/0)
+- Update index.html. [Ján Doboš]
+
+  - function setSettings() renamed to SetFilters()
+  - if CVE filtering is enabled and sent via POST, setFilters() is run on document.ready and sets values of the filtering elements
+    - python variable filters now stores the current filter settings
+- Update index-minimal.html. [Ján Doboš]
+
+  - unification of setFilters() javascript function with index.html
+  - if CVE filtering has been enabled and sent by POST, setFilters() is called on document.ready and set the current filter values on filtering elements
+- Update pager.js. [Ján Doboš]
+
+  - simplification of functions used for pagination
+  - function paginator_jump(n) now jumps to the required offset of results and is called by clicking on pagination elements
+- Update minimal.py. [Ján Doboš]
+
+  function getFilterSettingsFromPost has been polished
+- Update index.py. [Ján Doboš]
+
+  maintain original functionality because of recent changes of return values of getCVEs function
+- Update api.py. [Ján Doboš]
+
+  maintain original functionality because of recent changes of return values of getCVEs function
+- Update db_mgmt_cpe_other_dictionary.py. [Ján Doboš]
+
+  maintain same functionality because of changes of return values inside the getCVEs function (now return a dictionary)
+- Update Query.py. [Ján Doboš]
+
+  - maintain same functionality because of changes of return values of getCVEs function
+- Update DatabaseLayer.py. [Ján Doboš]
+
+  - getCVEs
+    - update of return values in order to support pagination
+    - now returns a dictionary containing both data 'cves' and total number of results  'total' for pagination purposes)
+  - getCVEsNewerThan, via4Linked
+    - maintain same functionality by selecting the 'cves' result from the dictionary because of update of getCVEs
+    - removal of sanitization, because it is already called inside the getCVE function
+- Update CVEs.py. [Ján Doboš]
+
+  maintain functionality because of changes of values returned by getCVEs function
+- Update search.py. [Ján Doboš]
+
+  maintain same functionality because of changes values returned by getCVEs function
+
+
 v2.3 (2019-09-18)
 -----------------
 

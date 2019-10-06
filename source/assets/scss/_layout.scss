@@ -59,8 +59,6 @@ hr {
   padding-bottom: .08em;
   border-bottom: 0px solid $light-gray-color;
 
-  @include transition(border 300ms linear);
-
   &:hover,
   &:focus,
   &:active {

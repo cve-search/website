@@ -100,8 +100,8 @@ DEPENDENCIES
   html-proofer
   jekyll (~> 4.0)
   jekyll-paginate (~> 1.1)
-  pygments.rb (~> 0.6.3)
+  pygments.rb
   sass (~> 3.4, >= 3.4.20)
 
 BUNDLED WITH
-   1.11.2
+   1.16.2

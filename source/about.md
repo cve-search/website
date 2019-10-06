@@ -10,7 +10,6 @@ The main objective of the software is to avoid doing direct and public lookup in
 
 cve-search includes a back-end to store vulnerabilities and related information, an intuitive web interface for search and managing vulnerabilities, a series of tools to query the system and a web API interface.
 
-
 ## Team and history
 
 cve-search started a simple script written by Wim Remes to fetch CVE from MITRE and put these in a database. Alexandre Dulaunoy took over
@@ -24,9 +23,13 @@ make it better over time.
 * Pieter-Jan Moreels - [@pidgeyL](https://twitter.com/pidgeyL)
 * Raphael Vinot - [@rafi0t](https://twitter.com/rafi0t)
 
+## Twitter
+
+Don't hesitate to [follow us on Twitter](https://twitter.com/cve_search) to be informed about the releases, news and ongoing projects.
+
 ### Sponsors
 
-[![CIRCL](https://www.circl.lu/assets/images/logo.png)](https://www.circl.lu/)
+- [![CIRCL](https://www.circl.lu/assets/images/logo.png)](https://www.circl.lu/)
 
 # Contact
 

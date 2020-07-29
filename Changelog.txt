@@ -2,6 +2,42 @@ Changelog
 =========
 
 
+v2.9 (2020-07-29)
+-----------------
+
+Changes
+~~~~~~~
+- [doc] reference to the ChangeLog updated. [Alexandre Dulaunoy]
+
+Other
+~~~~~
+- Merge pull request #436 from noraj/patch-2. [Alexandre Dulaunoy]
+
+  add docker ref
+- Update README.md. [Alexandre Dulaunoy]
+
+  Make it more markdown friendly.
+- Add docker ref. [Alexandre ZANNI]
+- Merge pull request #442 from P-T-I/fix_cpe_other. [Alexandre Dulaunoy]
+
+  fix #441
+- Fix #441. [Paul Tikken Laptop]
+- Merge pull request #444 from P-T-I/capec. [Alexandre Dulaunoy]
+
+  fix #443 and #402 and #414
+- Fix #443. [Paul Tikken Laptop]
+- Merge pull request #445 from P-T-I/version_bumps. [Alexandre Dulaunoy]
+
+  version bump of cwe and capec
+- Version bump of cwe. [Paul Tikken Laptop]
+- Merge pull request #438 from AndreC10002/patch-2. [Alexandre Dulaunoy]
+
+  Redis password parameter
+- Redis password parameter. [AndreC10002]
+
+  Redis password parameter
+
+
 v2.8 (2020-06-03)
 -----------------
 

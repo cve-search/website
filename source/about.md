@@ -15,12 +15,13 @@ cve-search includes a back-end to store vulnerabilities and related information,
 cve-search started a simple script written by Wim Remes to fetch CVE from MITRE and put these in a database. Alexandre Dulaunoy took over
 the development of the project and the software gradually increased to a usable tool-set to handle vulnerabilities. Then Pieter-Jan Moreels joined
 the cve-search project adding a complete web interface and many new features. Many contributors proposed changes and pull-requests to cve-search to
-make it better over time.
+make it better over time. A major rewrite of the API was done by Paul Tikken in 2020.
 
 ## Core team
 
 * Alexandre Dulaunoy - [@adulau](https://twitter.com/adulau)
 * Pieter-Jan Moreels - [@pidgeyL](https://twitter.com/pidgeyL)
+* Paul Tikken - [@PaulTikken](https://twitter.com/PaulTikken)
 * Raphael Vinot - [@rafi0t](https://twitter.com/rafi0t)
 
 ## Twitter

@@ -1,23 +1,20 @@
 ---
 layout: page
-title: cve-search data feeds.
+title: Open Data Feeds of Software Vulnerabilities
 permalink: /dataset/
 ---
 
 * TOC
 {:toc}
 
-# Data feeds
+# Open Data Feeds
 
-Beside the software behind the cve-search project, our aim is to provide an open data feeds.
+Besides the software behind the cve-search project, our aim is to provide open data feeds. With the new [vulnerability-project](https://www.vulnerability-lookup.org/) project, all the dumps are available and accessible.
 
-# Vulnerability Information Aggregator for CVEs
+# Open Data Feeds of Software Vulnerabilities
 
-- [Vulnerability Information Aggregator for CVEs  - JSON](https://www.cve-search.org/feeds/via4.json) - updated: daily
+- [https://vulnerability.circl.lu/dumps/](https://vulnerability.circl.lu/dumps/) - updated daily
 
-# Full JSON dump of cve-search
+This includes all the sources from the [vulnerability-project](https://www.vulnerability-lookup.org/).
 
-A daily JSON dump of all the CVE (Common Vulnerabilities and Exposures) is published with the expanded values as seen on https://cve.circl.lu/. The file is a gzip compressed JSON file (>190MB):
-
-- [Daily JSON dump of cve-search including all CVE (Common Vulnerabilities and Exposures)](https://cve.circl.lu/static/circl-cve-search-expanded.json.gz) - updated: daily
-
+There is also an [Open API to gather additional metadata from the actual vulnerabilities](https://vulnerability.circl.lu/api/).

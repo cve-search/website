@@ -1,6 +1,447 @@
 # Changelog
 
 
+## v5.2.0 (2025-03-17)
+
+### Other
+
+* Update web/VERSION 5.1.0.dev9. [GitHub Action]
+
+* Update requirements.txt (#1141) [PT]
+
+* WebUI: improve tables (#1136) [Esa Jokinen]
+
+* Maintain a CWE array in webui and swagger (#1132) [SashaTail]
+
+* Update requirements.txt. [PT]
+
+* Add cvss4 in webui #1128 (#1129) [SashaTail]
+
+  * Add CVSS4 display on the vulnerability page
+
+  * Add filter, sorting to vulnerabilities page
+
+  * Fix td size for Cvss4 cases
+
+  * Improve filter logic for cvss4
+
+  * Add CVSSv4 in swagger doc
+
+  * Delete score from cvss4
+
+  * Update version
+
+* Feat(search): limit results by days since modified (#1121) [Esa Jokinen]
+
+  * feat(search): limit results by days since modified
+
+  Add search.py -T to limit results to results from n days by the
+  last modification, while -t does it based on the date published.
+
+  * build(ci): update actions/upload-artifact to v4
+
+  This test was using a deprecated version of actions/upload-artifact: v2.
+
+* Update web/VERSION 5.1.0.dev2. [GitHub Action]
+
+* Bump nltk from 3.8.1 to 3.9 (#1118) [dependabot[bot]]
+
+  Bumps [nltk](https://github.com/nltk/nltk) from 3.8.1 to 3.9.
+  - [Changelog](https://github.com/nltk/nltk/blob/develop/ChangeLog)
+  - [Commits](https://github.com/nltk/nltk/compare/3.8.1...3.9)
+
+  ---
+  updated-dependencies:
+  - dependency-name: nltk
+    dependency-type: direct:production
+  ...
+
+* Remove support for search.py -q (#1117) [Esa Jokinen]
+
+
+## v5.1.0 (2024-07-24)
+
+### New
+
+* [Changelog] updated. [Alexandre Dulaunoy]
+
+### Changes
+
+* [changelog] release 5.1.0 (#1115) [Esa Jokinen]
+
+### Other
+
+* Retire db_mgmt_[source].py (#1113) [Esa Jokinen]
+
+  * Replaced by db_updater.py -s capec
+
+  * Replaced by db_updater.py -s cpe
+
+  * Replaced by db_updater.py -s cwe
+
+  * Replaced by db_updater.py -s cve
+
+  * Replaced by db_updater.py -s via4
+
+  * Update documentation
+
+  * Update SystemD db_init service to retire legacy init
+
+* Set sources & update interval manually for NVD API (#1110) [Esa Jokinen]
+
+  * Set update interval (1-120 days) manually for NVD API
+
+  Adds -d (--days) options for passing manual interval to CveXplore.
+
+  Requires CveXplore with cve-search/CveXplore#300.
+
+  * Add long option strings & reorder help
+
+  Makes the code more readable and the short option strings more
+  understandable and memorable. Related options grouped together.
+
+  * Update documentation for Updating the database
+
+  Update the documentation to reflect these and some other recent changes.
+
+  * Set sources manually for NVD API
+
+  Adds -s (--sources) option for overriding the configured sources.
+
+  Requires #1112 for EPSS source as it is not currently configured.
+
+  * Warn about --sources not available in CveXplore
+
+* Update requirements.txt. [PT]
+
+* Pass sources configuration to CveXplore (#1112) [Esa Jokinen]
+
+  * Default sources from CveXplore
+
+  CPE & CPE feeds are replaced by the API & not configurable.
+
+  * Pass sources configuration to CveXplore
+
+  * Keep the same order in all sources lists
+
+* Quick fix for sort_dir not working in free queries. (#1109) [Crea Giuseppe]
+
+  * Quick fix for sort_dir not working in free queries.
+
+  * Update lib/DatabasePlugins/mongodb.py
+
+  Covering all undefined cases of sort_dir
+
+* Fix default config & remove unused imports (#1108) [Esa Jokinen]
+
+  * None is treated as a string, comment out
+
+  * Remove unused import
+
+  * Remove unused import
+
+* Update requirements.txt. [PT]
+
+* Pass MongoDB configuration to CveXplore (#1107) [Esa Jokinen]
+
+* Pass proxy configuration to CveXplore (#1102) [Esa Jokinen]
+
+* Update requirements.txt. [PT]
+
+* Update web/VERSION 5.0.3.dev3. [GitHub Action]
+
+* Update requirements.txt (#1105) [PT]
+
+* Avoid dependency conflicts with CveXplore (#1101) [Esa Jokinen]
+
+
+## v5.0.3 (2024-04-16)
+
+### Changes
+
+* [changelog] updated for release 5.0.2. [Alexandre Dulaunoy]
+
+### Other
+
+* Update requirements.txt. [PT]
+
+
+## v5.0.2 (2024-04-13)
+
+### Changes
+
+* [VERSION] release 5.0.2. [Alexandre Dulaunoy]
+
+* [changelog] updated. [Alexandre Dulaunoy]
+
+### Other
+
+* Update requirements.txt. [PT]
+
+* Update requirements.txt. [PT]
+
+* Support non-numeric versions in relaxSearch (#1081) [Esa Jokinen]
+
+  * Support non-numeric versions in relaxSearch
+  Use simplified version string for easier comparison.
+  Avoid using print() in a library.
+
+  * New unit tests for improved search.py --lax
+
+  * Fix search.py bug with parentheses in version
+
+  * Corrections for search.py help in README.md
+
+  * Fix import order for lib.cpe_conversion
+
+  * README.md lint markdown, syntax highlighting etc.
+
+  * Black formatting
+
+  * README.md further improve jq highlighting
+
+* Fix CPE name parsing (#1080) [Maxime Huyghe]
+
+* Update web/VERSION 5.0.1.dev16. [GitHub Action]
+
+* Bump cryptography from 42.0.0 to 42.0.4 (#1060) [dependabot[bot]]
+
+  Bumps [cryptography](https://github.com/pyca/cryptography) from 42.0.0 to 42.0.4.
+  - [Changelog](https://github.com/pyca/cryptography/blob/main/CHANGELOG.rst)
+  - [Commits](https://github.com/pyca/cryptography/compare/42.0.0...42.0.4)
+
+  ---
+  updated-dependencies:
+  - dependency-name: cryptography
+    dependency-type: direct:production
+  ...
+
+* Update auto_version.yaml. [PT]
+
+* Refactor db_updater fixing repopulate ordering & removing -v option (#1076) [Esa Jokinen]
+
+  * db_updater: fix repopulate ordering
+
+  * db_updater: more informative log headers
+
+  * db_updater: only drop collections on first iteration
+
+  * db_updater: drop non-configured collections
+
+  * Remove -v option from dp_updater
+
+  Leave dummy option for backwards compatibility.
+  Clarify the documentation.
+
+  * Use same instance of CveXplore() & add main
+
+* SystemD db_updater.timer lower update interval (#1078) [Esa Jokinen]
+
+* Cleanup: remove unused .talismanrc fileignore (#1075) [Esa Jokinen]
+
+* Gitignore entire docs/build (#1074) [Esa Jokinen]
+
+* GitHub workflow for automatic web/VERSION update (#1073) [Esa Jokinen]
+
+* Sync configuration.ini.sample with Config.py & update docs (#1071) [Esa Jokinen]
+
+* Upgrade workflow actions to Node.js 20 (#1072) [Esa Jokinen]
+
+* Downgrade DataTables 2.0.3 -> 1.13.11 (#1067) [Esa Jokinen]
+
+* Major documentation updates (#1069) [Esa Jokinen]
+
+* Improve SystemD service examples (#1065) [Esa Jokinen]
+
+* Update static JS dependencies (#1063) [Esa Jokinen]
+
+  * Update jQuery 3.6.0 -> 3.7.1
+
+  * Update Popper v2.11.5 -> v2.11.8
+
+  * Update clipboard.js v2.0.10 -> v2.0.11
+
+  * Update Bootstrap v4.6.0 -> v4.6.2
+
+  "One of our last releases for the v4."
+
+  * Update DataTables 1.11.3 -> 2.0.3
+
+* Fixes #1057. [Paul Tikken]
+
+* Req bump. [Paul Tikken]
+
+
+## v5.0.1 (2024-01-28)
+
+### New
+
+* [release] changelog updated to match release v5.0.0. [Alexandre Dulaunoy]
+
+### Other
+
+* Update README.md (#1055) [Esa Jokinen]
+
+  * systemd services: rename mongod.service
+
+  * black formatting
+
+  * README.md add workflow badges
+
+  * README.md update copyright years
+
+  * README.md update changelog link
+
+  The changelog on the site hasn't been updated for ages.
+
+* Systemd services: rename mongod.service (#1052) [Esa Jokinen]
+
+  * systemd services: rename mongod.service
+
+  * black formatting
+
+  * README.md add workflow badges
+
+* Update script tweaks (#1051) [PT]
+
+  * tweaks to update script
+
+* Add check for missing 'vulnerable_configuration' field (#1050) [PT]
+
+* Fixes #1038. [Paul Tikken]
+
+* Merge pull request #1047 from cve-search/cve-search-1042. [PT]
+
+  Additional check
+
+* Added check for missing epss values. [Paul Tikken]
+
+* Merge pull request #1041 from oh2fih/master. [PT]
+
+  Add workflow to check black formatting
+
+* Black formatting (23.12.1) [Esa Jokinen]
+
+* Add workflow to check black formatting. [Esa Jokinen]
+
+* Black formatting. [Paul Tikken]
+
+
+## v5.0.0 (2023-12-18)
+
+### New
+
+* [ChangeLog] added. [Alexandre Dulaunoy]
+
+### Other
+
+* Update requirements.txt. [PT]
+
+* Merge pull request #1034 from baonq-me/fix/12122023_cli_search_cve. [PT]
+
+* Fix counting results when searching for CVE using cli. [baonq-me]
+
+* Merge pull request #1033 from baonq-me/master. [PT]
+
+* Improve CVEs search speed in bin/search.py. [baonq-me]
+
+  Improve CVEs search speed in bin/search.py by passing search query to mongodb instead of getting all ids, then calling db again to get each doc. Some case like "bin/search.py -s linux" can return seven thousand CVEs which result to seven thousand API calls to db by the old way.
+
+* Allow getting CVEs from a MongoDB doc. [baonq-me]
+
+  Sometimes we need to getting so many CVE from the database. It's better to getting all mongo doc at the same time to reduce network calls to the database, then use method getCveFromMongoDbDoc() to standardize the document
+
+* Add method searchCVE to DatabaseLayer. [baonq-me]
+
+* Merge pull request #1031 from fazledyn-or/Fix_Inappropriate_Logic. [PT]
+
+  Fixed Inappropriate Logical Expression
+
+* Fixed Inappropriate Logical Expression. [fazledyn-or]
+
+* Merge pull request #1032 from baonq-me/fix/11122023_mongodb_count. [PT]
+
+  Use count_documents() to count mongo documents instead of old and deprecated count()
+
+* Use method count_documents to count mongo documents instead of old and deprecated count() [baonq-me]
+
+* Merge pull request #1030 from baonq-me/fix/08122023_mongodb_connection. [PT]
+
+* Pass mongodb connection string when initialize CveXplore. [baonq-me]
+
+* Commented out code coverage. [Paul Tikken]
+
+* Fixes #916. [Paul Tikken]
+
+* Update requirements.txt. [PT]
+
+* Merge pull request #1022 from cve-search/CveSearch-1021. [PT]
+
+  mongodb connections
+
+* Fixes #1021. [Paul Tikken]
+
+* Req update. [Paul Tikken]
+
+* Merge pull request #1019 from cve-search/fix_1017. [PT]
+
+  wrong key when populating redis cache
+
+* Should address #1017. [Paul Tikken]
+
+* Update requirements.txt. [PT]
+
+* Merge pull request #1010 from cve-search/cve-search-929. [PT]
+
+  Rewrite of database update to use NVD NIST API from cvexplore lib
+
+* Update web/templates/cve.html. [PT]
+
+* Temp disabling failing test; they break on changed datastructure and need to be revised. [Paul Tikken]
+
+* Temp disabling failing test; they break on changed datastructure and need to be revised. [Paul Tikken]
+
+* Temp disabling failing test; they break on changed datastructure and need to be revised. [Paul Tikken]
+
+* Altered test data to match new structure. [Paul Tikken]
+
+* Reqs update. [Paul Tikken]
+
+* Reqs update. [Paul Tikken]
+
+* Workflow update. [Paul Tikken]
+
+* Workflow update. [Paul Tikken]
+
+* Updated reqs. [Paul Tikken]
+
+* First refactor which makes use of cvexplore for database updates vai NIST NVD API. [Paul Tikken]
+
+* Optimized imports. [Paul Tikken]
+
+* Merge pull request #1002 from nsmfoo/master. [PT]
+
+  Update requirements.txt
+
+* Update requirements.txt. [Mikael Keri]
+
+  Specified the flask-menu version. The latest release of the module (v1.0.0) currently breaks the cve-search webinterface
+
+* Delete .github/workflows/codeql-analysis.yml. [PT]
+
+* Merge pull request #998 from oh2fih/master. [PT]
+
+  Configurable DownloadMaxWorkers (#890)
+
+* Fix beautifulsoup4 required version mismatch requirements-dev.txt (4.10.0) behind requirements.txt (4.11.0) [Esa Jokinen]
+
+* Fix Build & Test pipeline (codecov) Use version of codecov (2.1.13) that is still available. [Esa Jokinen]
+
+* Handle configuration errors in DownloadMaxWorkers. [Esa Jokinen]
+
+* Configurable DownloadMaxWorkers (#890) [Esa Jokinen]
+
+
 ## v4.2.2 (2023-08-08)
 
 ### Other
@@ -159,10 +600,6 @@
 
 
 ## v4.2.1 (2022-05-27)
-
-### New
-
-* [config] changelogrc configuration + updated pattern for tag matching. [Alexandre Dulaunoy]
 
 ### Changes
 
@@ -330,6 +767,15 @@
   * Updated Config.py and mongodb.py to allow calls for SRV connections.
 
 * Update VERSION. [PT]
+
+
+## v4.2 (2022-03-21)
+
+### New
+
+* [config] changelogrc configuration + updated pattern for tag matching. [Alexandre Dulaunoy]
+
+### Other
 
 * Merge pull request #854 from oh2fih/master. [PT]
 
@@ -1272,95 +1718,9 @@
 
 ## v4.1.0 (2021-04-24)
 
-### New
-
-* [db_mgmt_json] first version of importing NVD CVE from the new JSON format. [Alexandre Dulaunoy]
-
-  - new import script (db_mgmt_json) added to parse the JSON entries and import in MongoDB
-  - Goal was to map existing data found in the old XML format from the new NVD JSON format
-  - cpe2.2 is now discarded (cpe2.3 should be the default in cve-search)
-  - CWE contains additional type of fields from the NVD which need to be fixed
-  - ranking is currently disabled (WiP to add it back in minimal API later)
-
 ### Changes
 
 * [version] v4.1.0 released. [Alexandre Dulaunoy]
-
-* [copyright] add Paul as co-author. [Alexandre Dulaunoy]
-
-* [travis] fix to use JSON NVD source + removed unsupported Python version. [Alexandre Dulaunoy]
-
-* [doc] reference to the ChangeLog updated. [Alexandre Dulaunoy]
-
-* [source] default to nvd cve 1.1. [Alexandre Dulaunoy]
-
-* [cve source] now officially use nvd 1.1 version. [Alexandre Dulaunoy]
-
-* [config] download CVE JSON feed in version 1.1. [Alexandre Dulaunoy]
-
-* [DatabaseLayer] access field missing added - Fix #404. [Alexandre Dulaunoy]
-
-* [DatabaseLayer] add missing impact field in the update. [Alexandre Dulaunoy]
-
-  Thanks to the good report in issue #403.
-
-* [cpe/bulkUpdate] use format instead of concat. [Alexandre Dulaunoy]
-
-* [db] all regex queries are now case insensitive. [Alexandre Dulaunoy]
-
-* [web] template vulnerable_product and assigner is a default field. [Alexandre Dulaunoy]
-
-* [sources] revert back CAPEC XML source (parser is broken with recent version) [Alexandre Dulaunoy]
-
-* [db_mgmt_json] use of format. [Alexandre Dulaunoy]
-
-* [cwe] CWE import fixed using pull-request #353. [Alexandre Dulaunoy]
-
-  This should fix issue #252 #348
-
-  Thanks to @DocArmoryTech @FafnerKeyZee
-
-* [cveforCPE] fix to use the new result part. [Alexandre Dulaunoy]
-
-  Fix #382
-
-* [cpe browser] redis - quick fix for browser to work with recent cpe version. [Alexandre Dulaunoy]
-
-* [search] use format as output instead of concatenation. [Alexandre Dulaunoy]
-
-* [DatabaseLayer] cleanup. [Alexandre Dulaunoy]
-
-* [search] fix due to the recent change of the library interface. [Alexandre Dulaunoy]
-
-* [cpe search] fixed for the JSON output. [Alexandre Dulaunoy]
-
-* [doc] Python 3.6 required. [Alexandre Dulaunoy]
-
-* [db_mgmt_json] improve the parsing of the vulnerable_configuration tree format. [Alexandre Dulaunoy]
-
-  - children entries are now taken into account
-  - a new field is added to add the non_vulnerable_configuration
-
-  This should fix a very old bug in XML where non vulnerable configuration
-  were imported into the vulnerable_configuration.
-
-  And it should also fix the issue #373
-
-* [db_mgmt_json] force option to update the current JSON of NVD. [Alexandre Dulaunoy]
-
-* [db_mgmt_json] CVSSv2 vector is now imported. [Alexandre Dulaunoy]
-
-* [search_cpe] references added in output and csv output added. [Alexandre Dulaunoy]
-
-* [db_mgmt_json] minor fixes (format) [Alexandre Dulaunoy]
-
-* [doc] README updated with JSON feed download. [Alexandre Dulaunoy]
-
-* [source] fix CPE v2.3 url. [Alexandre Dulaunoy]
-
-* [doc] add new MISP modules using cve-search. [Alexandre Dulaunoy]
-
-* [doc] Added initial import indication. [Steve Clement]
 
 ### Fix
 
@@ -1373,12 +1733,6 @@
 * [json import] ASSIGNER not always present (required) in NVD json feed. [Alexandre Dulaunoy]
 
   Fix #650
-
-* [db_mgmt_json] if cpe_name is missing from original CPE then use default cpe23 URI. [Alexandre Dulaunoy]
-
-* [minimal] link result is now using the proper cve result key. [Alexandre Dulaunoy]
-
-* Display the correct number of elements in cves. [Alexandre Dulaunoy]
 
 ### Other
 
@@ -1993,6 +2347,15 @@
   - [Commits](https://github.com/psf/requests/compare/v2.25.0...v2.25.1)
 
 * Update VERSION. [PT]
+
+
+## v4.0 (2020-12-17)
+
+### Changes
+
+* [copyright] add Paul as co-author. [Alexandre Dulaunoy]
+
+### Other
 
 * Merge pull request #562 from P-T-I/cve-search-560. [PT]
 
@@ -2838,6 +3201,15 @@
 
 * Changed sources to latest versions. [Paul Tikken Laptop]
 
+
+## v3.0 (2020-10-01)
+
+### Changes
+
+* [travis] fix to use JSON NVD source + removed unsupported Python version. [Alexandre Dulaunoy]
+
+### Other
+
 * Merge pull request #451 from P-T-I/import_impr. [Alexandre Dulaunoy]
 
   Initial import restructure
@@ -3156,6 +3528,15 @@
 
 * Small http query optimalization and black formatting. [Paul Tikken Laptop]
 
+
+## v2.9 (2020-07-29)
+
+### Changes
+
+* [doc] reference to the ChangeLog updated. [Alexandre Dulaunoy]
+
+### Other
+
 * Merge pull request #436 from noraj/patch-2. [Alexandre Dulaunoy]
 
   add docker ref
@@ -3191,6 +3572,25 @@
 * Redis password parameter. [AndreC10002]
 
   Redis password parameter
+
+
+## v2.8 (2020-06-03)
+
+### Changes
+
+* [source] default to nvd cve 1.1. [Alexandre Dulaunoy]
+
+* [cve source] now officially use nvd 1.1 version. [Alexandre Dulaunoy]
+
+* [config] download CVE JSON feed in version 1.1. [Alexandre Dulaunoy]
+
+* [DatabaseLayer] access field missing added - Fix #404. [Alexandre Dulaunoy]
+
+* [DatabaseLayer] add missing impact field in the update. [Alexandre Dulaunoy]
+
+  Thanks to the good report in issue #403.
+
+### Other
 
 * Merge pull request #429 from tydeu/master. [Alexandre Dulaunoy]
 
@@ -3241,11 +3641,41 @@
     File "/cve-search/sbin/../lib/DatabaseLayer.py", line 72, in updateCVE
       "vulnerable_product": cve["vulnerable_product"], "access": cve['acccess'],
 
+
+## v2.7 (2020-01-12)
+
+### Changes
+
+* [cpe/bulkUpdate] use format instead of concat. [Alexandre Dulaunoy]
+
+* [db] all regex queries are now case insensitive. [Alexandre Dulaunoy]
+
+### Other
+
 * Merge pull request #401 from Agh42/feature/improve-bulk-updates. [Alexandre Dulaunoy]
 
   Speed up bulk update (i.e. CPE update) operations.
 
 * Speed up bulk update operations. [Agh42]
+
+
+## v2.6 (2019-11-08)
+
+### Changes
+
+* [web] template vulnerable_product and assigner is a default field. [Alexandre Dulaunoy]
+
+* [sources] revert back CAPEC XML source (parser is broken with recent version) [Alexandre Dulaunoy]
+
+* [db_mgmt_json] use of format. [Alexandre Dulaunoy]
+
+### Fix
+
+* [db_mgmt_json] if cpe_name is missing from original CPE then use default cpe23 URI. [Alexandre Dulaunoy]
+
+* [minimal] link result is now using the proper cve result key. [Alexandre Dulaunoy]
+
+### Other
 
 * Merge pull request #391 from kairis/master. [Alexandre Dulaunoy]
 
@@ -3277,6 +3707,25 @@
 
 * Append all items of CVE description field into summary. [Sami Kairajarvi]
 
+
+## v2.5 (2019-10-24)
+
+### Changes
+
+* [cwe] CWE import fixed using pull-request #353. [Alexandre Dulaunoy]
+
+  This should fix issue #252 #348
+
+  Thanks to @DocArmoryTech @FafnerKeyZee
+
+* [cveforCPE] fix to use the new result part. [Alexandre Dulaunoy]
+
+  Fix #382
+
+* [cpe browser] redis - quick fix for browser to work with recent cpe version. [Alexandre Dulaunoy]
+
+### Other
+
 * Merge pull request #380 from kairis/master. [Alexandre Dulaunoy]
 
   Update CPE to use JSON feed
@@ -3289,6 +3738,21 @@
   readable
 
 * Update CPE to use JSON feed. [Sami Kairajärvi]
+
+
+## v2.4 (2019-10-06)
+
+### Changes
+
+* [search] use format as output instead of concatenation. [Alexandre Dulaunoy]
+
+* [DatabaseLayer] cleanup. [Alexandre Dulaunoy]
+
+* [search] fix due to the recent change of the library interface. [Alexandre Dulaunoy]
+
+* [cpe search] fixed for the JSON output. [Alexandre Dulaunoy]
+
+### Other
 
 * Merge branch 'janidetiger-master' [Alexandre Dulaunoy]
 
@@ -3402,6 +3866,51 @@
 * Update search.py. [Ján Doboš]
 
   maintain same functionality because of changes values returned by getCVEs function
+
+
+## v2.3 (2019-09-18)
+
+### New
+
+* [db_mgmt_json] first version of importing NVD CVE from the new JSON format. [Alexandre Dulaunoy]
+
+  - new import script (db_mgmt_json) added to parse the JSON entries and import in MongoDB
+  - Goal was to map existing data found in the old XML format from the new NVD JSON format
+  - cpe2.2 is now discarded (cpe2.3 should be the default in cve-search)
+  - CWE contains additional type of fields from the NVD which need to be fixed
+  - ranking is currently disabled (WiP to add it back in minimal API later)
+
+### Changes
+
+* [doc] Python 3.6 required. [Alexandre Dulaunoy]
+
+* [db_mgmt_json] improve the parsing of the vulnerable_configuration tree format. [Alexandre Dulaunoy]
+
+  - children entries are now taken into account
+  - a new field is added to add the non_vulnerable_configuration
+
+  This should fix a very old bug in XML where non vulnerable configuration
+  were imported into the vulnerable_configuration.
+
+  And it should also fix the issue #373
+
+* [db_mgmt_json] force option to update the current JSON of NVD. [Alexandre Dulaunoy]
+
+* [db_mgmt_json] CVSSv2 vector is now imported. [Alexandre Dulaunoy]
+
+* [search_cpe] references added in output and csv output added. [Alexandre Dulaunoy]
+
+* [db_mgmt_json] minor fixes (format) [Alexandre Dulaunoy]
+
+* [doc] README updated with JSON feed download. [Alexandre Dulaunoy]
+
+* [source] fix CPE v2.3 url. [Alexandre Dulaunoy]
+
+* [doc] add new MISP modules using cve-search. [Alexandre Dulaunoy]
+
+* [doc] Added initial import indication. [Steve Clement]
+
+### Other
 
 * Merge pull request #374 from FafnerKeyZee/master. [Alexandre Dulaunoy]
 
@@ -3798,6 +4307,15 @@
 
 * VIA4CVE reference added. [Alexandre Dulaunoy]
 
+
+## v2.2 (2016-12-29)
+
+### Fix
+
+* Display the correct number of elements in cves. [Alexandre Dulaunoy]
+
+### Other
+
 * Merge pull request #211 from adulau/master. [Alexandre Dulaunoy]
 
   via4cvs and many other fixes
@@ -4059,14 +4577,6 @@
 
   re-add import that was accidentally removed
 
-* Merge pull request #170 from adulau/master. [Alexandre Dulaunoy]
-
-  Many fixes
-
-* Merge pull request #127 from PidgeyL/master. [Alexandre Dulaunoy]
-
-  Plug-in manager fixes, updates etc
-
 * Error handling on date issues. [PidgeyL]
 
 * Update the documentation to explain the plugins.txt error. [PidgeyL]
@@ -4074,6 +4584,19 @@
 * Bugfix for #172 of the master branch. [PidgeyL]
 
 * Re-add import that was accidentally removed. [PidgeyL]
+
+
+## v2.1 (2016-06-13)
+
+### Other
+
+* Merge pull request #170 from adulau/master. [Alexandre Dulaunoy]
+
+  Many fixes
+
+* Merge pull request #127 from PidgeyL/master. [Alexandre Dulaunoy]
+
+  Plug-in manager fixes, updates etc
 
 * Review imports. [PidgeyL]
 
@@ -4295,6 +4818,17 @@
 
 * Merge remote-tracking branch 'upstream/master' [PidgeyL]
 
+* Give more options to functions. [PidgeyL]
+
+* Show reasons for plug-in failure. [PidgeyL]
+
+* Bugfix for dicts in p_addToList. [PidgeyL]
+
+
+## v2.0 (2016-05-01)
+
+### Other
+
 * MITRE now serves the files in TLS (config updated) [Alexandre Dulaunoy]
 
 * MITRE now serves the files in TLS (config updated) [Alexandre Dulaunoy]
@@ -4303,31 +4837,7 @@
 
   Several updates and fixes in both index.py and cpeList.py
 
-* Merge pull request #154 from adulau/master. [Alexandre Dulaunoy]
-
-  Fix #147
-
-* Merge pull request #146 from adulau/master. [Alexandre Dulaunoy]
-
-  Replace syslog modules to logging module (to support Windows)
-
-* Merge pull request #145 from adulau/master. [Alexandre Dulaunoy]
-
-  Major web interface clean-up + some fixes for the minimal part
-
-* Merge pull request #140 from adulau/master. [Alexandre Dulaunoy]
-
-  Bug fix: search template must be minimal
-
-* Give more options to functions. [PidgeyL]
-
-* Show reasons for plug-in failure. [PidgeyL]
-
-* Bugfix for dicts in p_addToList. [PidgeyL]
-
 * Merge remote-tracking branch 'upstream/master' [PidgeyL]
-
-* Fix #147. [Alexandre Dulaunoy]
 
 * Update copyrights. [PidgeyL]
 
@@ -4381,10 +4891,28 @@
 
 * Merge remote-tracking branch 'upstream/master' [PidgeyL]
 
+* Bugfix and some updates in control panel. [Pieter-Jan Moreels]
+
+* Update black-/whitelist import & export. [Pieter-Jan Moreels]
+
+* Merge pull request #154 from adulau/master. [Alexandre Dulaunoy]
+
+  Fix #147
+
+* Fix #147. [Alexandre Dulaunoy]
+
+* Merge pull request #146 from adulau/master. [Alexandre Dulaunoy]
+
+  Replace syslog modules to logging module (to support Windows)
+
 * Replace syslog modules to logging module (to support Windows) [Alexandre Dulaunoy]
 
   This is just a quick replacement of syslog to support Windows
   platform. Potential fix for #143.
+
+* Merge pull request #145 from adulau/master. [Alexandre Dulaunoy]
+
+  Major web interface clean-up + some fixes for the minimal part
 
 * Minimal option. [Alexandre Dulaunoy]
 
@@ -4394,19 +4922,25 @@
 
   fix typo
 
+* Fix typo. [Pieter-Jan Moreels]
+
 * Minimal option added. [Alexandre Dulaunoy]
 
 * Merge pull request #118 from PidgeyL/master. [Alexandre Dulaunoy]
 
   Some code optimization
 
-* Bugfix and some updates in control panel. [Pieter-Jan Moreels]
-
-* Update black-/whitelist import & export. [Pieter-Jan Moreels]
-
-* Fix typo. [Pieter-Jan Moreels]
-
 * Merge remote-tracking branch 'upstream/master' [Pieter-Jan Moreels]
+
+* Complete master pages. [PidgeyL]
+
+* Initial commit using master-pages. [PidgeyL]
+
+* Shorten the update overview. [PidgeyL]
+
+* Merge pull request #140 from adulau/master. [Alexandre Dulaunoy]
+
+  Bug fix: search template must be minimal
 
 * Merge branch 'master' of https://github.com/adulau/cve-search. [Alexandre Dulaunoy]
 
@@ -4454,17 +4988,13 @@
 
   Fix for #134 (master repo)
 
-* Added pytz in the requirements (required for MISP module) - Fix #134. [Alexandre Dulaunoy]
-
-* Complete master pages. [PidgeyL]
-
-* Initial commit using master-pages. [PidgeyL]
-
-* Shorten the update overview. [PidgeyL]
-
 * Update search to search through vFeed IDs. [PidgeyL]
 
 * Merge remote-tracking branch 'upstream/master' [PidgeyL]
+
+* Update requirements. [PidgeyL]
+
+* Added pytz in the requirements (required for MISP module) - Fix #134. [Alexandre Dulaunoy]
 
 * Handle exploit definition without ref element to fix #129. [Alexandre Dulaunoy]
 
@@ -4473,8 +5003,6 @@
 * Merge pull request #116 from PidgeyL/master. [Alexandre Dulaunoy]
 
   add documentation in markdown & remove unused config variable
-
-* Update requirements. [PidgeyL]
 
 * Fix links. [PidgeyL]
 

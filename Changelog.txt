@@ -1,6 +1,592 @@
 # Changelog
 
 
+## %%version%% (unreleased)
+
+### Fix
+
+* Add expected configuration files to gitignore. [Esa Jokinen]
+
+* Update dump_last.py HTML output to current CVE format. [Esa Jokinen]
+
+  Update the HTML report generator to handle optional fields
+  (vulnerable configurations, products, references) in CVE data.
+
+* Add exception handling on empty fulltext index. [Esa Jokinen]
+
+* Update cve-search project url. [Esa Jokinen]
+
+* Fulltext processing; auto-download NLTK, optimize. [Esa Jokinen]
+
+  - Added safe_nltk_download() to ensure required NLTK corpora are
+    available and prevent LookupError at runtime.
+  - Added omw-1.4 resource to improve WordNet lemmatization coverage.
+  - Updated WordNetLemmatizer import to the supported modern style.
+  - Cached English stopwords in a set to avoid repeated lookups in
+    the loop, improving performance.
+
+* Update cve-search project url. [Esa Jokinen]
+
+* Update NIST NVD URLs. [Esa Jokinen]
+
+### Other
+
+* Merge pull request #1194 from oh2fih/release-6-0-0. [Alexandre Dulaunoy]
+
+  Release v6.0.0
+
+* Release v6.0.0. [Esa Jokinen]
+
+* Changelog: add missing entry for v5.2.0. [Esa Jokinen]
+
+  Contents copied from the GitHub release description.
+
+* Update web/VERSION 5.2.0.dev122. [GitHub Action]
+
+* Merge pull request #1197 from cve-search/dependabot/pip/werkzeug-3.1.4. [Alexandre Dulaunoy]
+
+  build(deps): bump werkzeug from 3.0.6 to 3.1.4
+
+* Build(deps): bump werkzeug from 3.0.6 to 3.1.4. [dependabot[bot]]
+
+  Bumps [werkzeug](https://github.com/pallets/werkzeug) from 3.0.6 to 3.1.4.
+  - [Release notes](https://github.com/pallets/werkzeug/releases)
+  - [Changelog](https://github.com/pallets/werkzeug/blob/main/CHANGES.rst)
+  - [Commits](https://github.com/pallets/werkzeug/compare/3.0.6...3.1.4)
+
+  ---
+  updated-dependencies:
+  - dependency-name: werkzeug
+    dependency-version: 3.1.4
+    dependency-type: direct:production
+  ...
+
+* Merge pull request #1193 from oh2fih/cleanup. [PT]
+
+* Cleanup: remove unused .schema_version. [Esa Jokinen]
+
+  This has been handled via CveXplore library for quite some time.
+
+* Cleanup: remove unused setting ListLoginRequired. [Esa Jokinen]
+
+* Cleanup: remove unused imports. [Esa Jokinen]
+
+* Merge pull request #1192 from oh2fih/web-admin-select-configured-feeds. [PT]
+
+* Web(admin): hide password form when login is not required. [Esa Jokinen]
+
+  The password change form was only hidden if OIDC was enabled. It is now
+  also hidden when login is not required, preventing a runtime error
+  since no authenticator exists without a logged-in user, and there is no
+  internal password to change.
+
+* Web(admin): render database stats table dynamically. [Esa Jokinen]
+
+  Refactor the admin template to generate database statistics rows in a
+  loop instead of hardcoding each one. This reduces duplication and makes
+  the table easier to maintain when adding or removing data sources.
+
+* Web(admin): render update source checkboxes dynamically. [Esa Jokinen]
+
+  Refactor the admin template to generate source checkboxes in a loop
+  instead of hardcoding each one. Checkboxes are now automatically
+  selected if their source is enabled in the configuration, so the UI
+  defaults match the configured update sources.
+
+* Merge pull request #1191 from oh2fih/cleanup-flask-plugins. [PT]
+
+* Docs: mark Webgui Plugin feature as retired. [Esa Jokinen]
+
+* Web(admin): new, more responsive 3-column layout. [Esa Jokinen]
+
+  - Changed admin page layout from 3-3-6 to 4-4-4 for better balance
+    after removing the Plugin feature management.
+  - Adjusted column widths and table styles to prevent database table
+    overflow, improving Bootstrap-based responsiveness.
+
+* Bump Jinja2 3.1.6, flask-menu 0.7.3, Flask-restx 1.3.0 & nltk 3.9.1. [Esa Jokinen]
+
+* Retire the Plugin Feature (Flask-Plugins) [Esa Jokinen]
+
+* Update dependencies: CveXplore, Gunicorn, Werkzeug etc. (#1189) [Esa Jokinen]
+
+* Merge pull request #1188 from oh2fih/simplify-db-updater. [PT]
+
+* Cleanup(db): only include source 'cpeother' if configured. [Esa Jokinen]
+
+  There is no need to add the source only to skip it later.
+
+* Cleanup(db): reorder code to be more readable. [Esa Jokinen]
+
+  Move additional sources population closer to where it is processed.
+
+* Cleanup(db): remove redundant db_updater.py -m. [Esa Jokinen]
+
+  The flag -m / --minimal was nothing but the opposite of -c / --cache.
+  We don't need two flags for toggling the exactly same feature.
+
+* Cleanup(db): remove dummy flag. [Esa Jokinen]
+
+  The dummy flag -v is not required anymore for admin UI compatibility,
+  as the usage of it was removed in PR #1176 commit e958732.
+
+* Merge pull request #1187 from oh2fih/fix-search-limit. [PT]
+
+* Cleanup(search): remove documentation of removed flag. [Esa Jokinen]
+
+* Cleanup(search): unused import. [Esa Jokinen]
+
+* Fix(search): output limit in search.py. [Esa Jokinen]
+
+  Pass -i limit to lib.DatabaseLayer functions that supports it.
+
+* Merge pull request #1186 from oh2fih/update-testdata. [PT]
+
+* Test: update test_search_cveid_desc assertion. [Esa Jokinen]
+
+  The test data now includes microseconds like the real data, so
+  the assertion must account for this increased time precision.
+
+* Test: update mock CVE and CPE data to current schema. [Esa Jokinen]
+
+  Refresh test CVE entries to match the current schema while keeping
+  the same IDs. Long lists truncated where mongosh indicated extra
+  items; two CPEs replaced as they no longer exist. Ensures tests
+  reflect current data and uncover hidden issues.
+
+* Merge pull request #1185 from oh2fih/fix-dump-last-html. [PT]
+
+* Test: update dump_last.py tests to match full mock dataset. [Esa Jokinen]
+
+  Adjust -l values and assertions to use all 9 CVEs in the test database,
+  ensuring that all output formats (Atom, RSS1, RSS2, HTML) are tested
+  against more variable data.
+
+* Test: re-enable dump_last.py tests after fixing HTML output. [Esa Jokinen]
+
+  These tests now pass again since the HTML report generator was fixed
+  to handle the current CVE schema.
+
+* Merge pull request #1184 from oh2fih/separate-fulltext-indexing. [PT]
+
+* Db(update): separate fulltext indexing from database updates. [Esa Jokinen]
+
+  The fulltext indexing feature in db_updater.py previously relied on
+  being able to read the number of updated CVEs during the process. With
+  the CveXplore backend, this information is no longer available, making
+  the update operation effectively a no-op. This commit removes indexing
+  from the script and the admin UI, leaving a hint on the current usage.
+
+* Merge pull request #1183 from oh2fih/minor-fixes. [PT]
+
+* Merge pull request #1182 from oh2fih/cleanup-legacy-scripts. [PT]
+
+* Cleanup(api): remove unused auth API and JWT token logic. [Esa Jokinen]
+
+  The authentication API for the retired whitelist/blacklist feature is
+  no longer required; none of the current endpoints use authentication.
+  Additionally, the /api/logout endpoint could not properly blacklist
+  tokens, and the use of Redis DB 8 for token tracking was undocumented.
+
+  This commit removes the partially implemented feature from 2020,
+  reducing complexity and external dependencies.
+
+* Cleanup: remove CVE Reference DB feature (cve_refs.py) [Esa Jokinen]
+
+  This script was intended to fetch NIST CVE References from Redis DB 12.
+  However, the database has never been populated, and most of the
+  listed `ref_urls` are non-working.
+
+  Remove all code related to the Redis "RefDB" from the repository.
+  This was likely a planned feature from 9 years ago that was never
+  fully implemented. Also remove completely unsed Redis DB 9.
+
+* Cleanup: remove obsolete cve_doc.py script. [Esa Jokinen]
+
+  The /api/cve endpoint is incompatible with the public cve.circl.lu API.
+  While the script still works with the current local API, it relies on
+  an Asciidoc template that is unlikely to be maintained in sync with
+  future changes to the CVE collection schema. Removed the inactive tests
+  related to this script, as well as the igetcve() function from
+  lib.Query, since the script was its only consumer.
+
+* Merge pull request #1181 from oh2fih/fix-ranking. [PT]
+
+* Fix(db): modernize ranking functions for PyMongo 4.x. [Esa Jokinen]
+
+  Replace deprecated update() and remove() with update_one() and
+  delete_one(), and fix findRanking() to return actual results,
+  including regex support. Restores intended ranking feature behavior.
+
+* Merge pull request #1179 from oh2fih/fix-create-index-script. [PT]
+
+* Fix(db): index creation script integration. [Esa Jokinen]
+
+  DatabaseIndexer expects a .dbclient attribute, but getMongoConnection()
+  returns a raw Database object. Add a wrapper so indexes are created in
+  the correct database instead of under a phantom 'dbclient.*'.
+
+* Merge pull request #1178 from oh2fih/fix-create-index-script. [PT]
+
+* Fix(db): index creation script compatibility. [Esa Jokinen]
+
+  Update db_mgmt_create_index.py to work with the current CveXplore API.
+
+* Merge pull request #1177 from oh2fih/manual-updates. [PT]
+
+  web(admin): prevent <defunct> processes in /updatedb
+
+* Web(admin): remove unused imports. [Esa Jokinen]
+
+* Web(admin): prevent <defunct> processes in /updatedb. [Esa Jokinen]
+
+  Child processes spawned by the /updatedb endpoint could become zombies
+  if not properly reaped. This change runs them in a daemon thread that
+  waits for completion, ensuring the process table stays clean while
+  forwarding logs and keeping the endpoint non-blocking.
+
+* Merge pull request #1176 from oh2fih/manual-updates. [PT]
+
+* Update web/VERSION 5.2.0.dev69. [Esa Jokinen]
+
+  Manually update the VERSION file as the workflow is still broken.
+
+* Db(update): auto-remove stale locks in any_lock_active() [Esa Jokinen]
+
+  - Remove stale locks before checking for active ones.
+  - Use timezone-aware UTC datetimes instead of deprecated utcnow().
+
+* Db(update): fix global repopulation locking. [Esa Jokinen]
+
+  - Acquire locks for all CveXplore sources during full repopulation.
+  - Prevents smaller updates from bypassing the global lock.
+  - Ensure all acquired locks are properly released even on failure.
+
+* Web(admin): add selectable database update sources. [Esa Jokinen]
+
+  - Allow manual selection of sources to update in admin UI:
+    CPE, CVE, CWE, CAPEC, VIA4, and EPSS.
+  - Pass selected sources as query params to backend.
+  - Whitelist sources on backend to prevent arbitrary input execution.
+
+* Db(update): log no-op fulltext indexing for debug. [Esa Jokinen]
+
+* Web(admin): add cache/index options to DB update. [Esa Jokinen]
+
+  - Add checkboxes in admin UI for Redis cache and fulltext index.
+  - Pass selected options to backend as query params.
+  - Map params to updater flags (-c, -i).
+  - Remove legacy no-op flag (-v).
+
+* Web(admin): add UI and API to clear updater locks. [Esa Jokinen]
+
+  - Add /clear_updater_locks endpoint to remove all active updater locks.
+  - Return list of removed locks in API response for clarity.
+  - Add "Forcibly Clear Locks" button to admin UI with AJAX call.
+  - Show feedback in UI when locks are cleared or none exist.
+
+* Web(admin): warn if database update is running. [Esa Jokinen]
+
+  - Prevent manual updates from starting if another update is running.
+  - Return a 409 with a clear message when the updater is locked.
+  - Display a warning (not error) in the front-end for locked updates.
+  - Preserve normal error handling and status updates for other failures.
+
+* Db(update): add locking to prevent concurrent updates. [Esa Jokinen]
+
+  - Add a global lock to prevent simultaneous inits or repopulations.
+  - Apply per-source locks to updates, caching and the fulltext indexer.
+  - Include consistent logging for failures and skipped updates.
+  - Ensure all locks are released properly even on exceptions.
+
+* Db(update): provide helpers for per-source locking. [Esa Jokinen]
+
+  Introduce acquire, release, and check functions backed by a MongoDB
+  collection. These helpers enable coordination of updates and prevent
+  concurrent runs for the same source. Stale locks are automatically
+  removed based on the configured maximum lock duration.
+
+* Web(admin): do not discard logs from manual updates. [Esa Jokinen]
+
+  Manual updates no longer redirect stdout/stderr to unused pipes,
+  preventing errors and status messages from being hidden.
+
+* Merge pull request #1171 from oh2fih/admin-listmanagement. [PT]
+
+* Retire whitelist/blacklist feature. [Esa Jokinen]
+
+  Remove the whitelist/blacklist feature entirely. While it could have
+  been partially recovered, it suffered from severe performance issues,
+  ambiguity, and unreliability.
+
+* Lib(db): restore whitelist/blacklist functionality. [Esa Jokinen]
+
+  Reintroduces the whitelist and blacklist helper functions removed during
+  the NIST NVD API refactor in commit 8d4c6d4, restoring functionality
+  lost by their removal. Also updates the functions for MongoDB 4.x
+  compatibility.
+
+* Web(admin): remove unused Redis exception handling. [Esa Jokinen]
+
+  This view only queries MongoDB, not Redis. The Redis-related import and
+  try/except block were dead code and have been removed for clarity.
+
+* Merge pull request #1175 from oh2fih/fix-fulltext-visualization. [PT]
+
+* Merge pull request #1174 from oh2fih/cleanup-legacy-documentation. [PT]
+
+* Docs: clarify fulltext visualization documentation. [Esa Jokinen]
+
+  The documentation now clearly explains that the script generates JSON
+  data of the most common CVE keywords, without creating visualizations
+  itself.
+
+* Doc: replace non-working example command. [Esa Jokinen]
+
+  Replace command to a non-executable script with links to sections
+  where the documentation has already been updated.
+
+* Doc: public api is now using vulnerability-lookup. [Esa Jokinen]
+
+* Doc(web): update web interface documentation. [Esa Jokinen]
+
+* Update auto_version.yaml. [PT]
+
+* Merge pull request #1173 from cve-search/P-T-I-patch-1. [PT]
+
+  Update auto_version.yaml
+
+* Update auto_version.yaml. [PT]
+
+* Merge pull request #1170 from oh2fih/api-browse-mongodb-fallback. [PT]
+
+  MongoDB fallback for browse & search-vendor API
+
+* Lib(query): fix fallback detection logic for empty lists. [Esa Jokinen]
+
+  Treat anything evaluating as False equally;
+  that includes: None, [], (), '', 0, etc.
+
+* Lib(query): reduce repetitive code in Redis/Mongo fallback. [Esa Jokinen]
+
+  Refactor getBrowseList(), getVersionsOfProduct(), searchVendors(),
+  searchProductsByVendor(), and searchVersionsByProduct() to use
+  redis_or_mongo() for consistent Redis-first, MongoDB-fallback behavior.
+  This centralizes fallback logic and related logging of warnings.
+
+* Lib(query): unify Redis/Mongo fallback into helper function. [Esa Jokinen]
+
+  Add redis_or_mongo() to centralize the pattern of trying Redis
+  first and falling back to MongoDB if Redis is unavailable or
+  empty. Provides optional logging context to indicate which
+  operation triggered the fallback.
+
+* Lib(query): add helper to ensure Redis connection is alive. [Esa Jokinen]
+
+  Introduce get_redis_connection() to check if the global Redis
+  connection is alive and reconnect if necessary. This ensures
+  Redis calls throughout Query.py are resilient to dropped or
+  stale connections.
+
+* Lib(Query): MongoDB fallback for /api/search-vendor. [Esa Jokinen]
+
+  Fallback to MongoDB in searchVendors(), searchProductsByVendor() and
+  searchVersionsByProduct() when Redis cache is unavailable or empty.
+  Fallback warnings are configured via Logging/RedisFallbackWarnings.
+
+* Lib(query): MongoDB fallback for /api/browse. [Esa Jokinen]
+
+  Fallback to MongoDB in getVersionsOfProduct(product) and
+  getBrowseList(vendor) when Redis cache is unavailable or empty.
+  Setting Logging/RedisFallbackWarnings to False can be used to
+  suppress fallback warnings if Redis is intentionally not in use.
+
+* Merge pull request #1169 from oh2fih/login-form-error-messages. [PT]
+
+* Web(auth): show specific login form errors to user. [Esa Jokinen]
+
+  Login route now detects missing username, invalid/empty password,
+  and CSRF errors, passing status codes to the frontend. JavaScript
+  displays clear messages rather than a generic or no error.
+
+* Merge pull request #1168 from oh2fih/fix-flask-authhandler-lazy. [PT]
+
+* Web(auth): lazy-load AuthenticationHandler to fix login. [Esa Jokinen]
+
+  Prevents AttributeError in FlaskAuthHandler during user login by
+  delegating method calls to AuthenticationHandler, doing so only
+  when needed using lazy loading.
+
+* Merge pull request #1167 from oh2fih/fix-admin-mgmt. [PT]
+
+* Fix(admin): remove misleading error message. [Esa Jokinen]
+
+  Remove the generic error message suggesting the problem was always an
+  outdated database. It was misleading, as it appeared for any unexpected
+  exception — in this case, calls to deprecated library methods.
+
+* Fix(admin): call correct, local functions. [Esa Jokinen]
+
+  The masterLogin() and isLastAdmin() are local,
+  not provided by MongoPlugin().
+
+* Fix(admin): single master detection logic. [Esa Jokinen]
+
+  Correct the isSingleMaster method to properly detect if a user
+  is the only master admin. Returns True only when no other master
+  users exist, preventing accidental deletion of the last admin.
+
+* Fix(admin): MongoPlugin PyMongo 4.x compatibility. [Esa Jokinen]
+
+  Fix admin/user management scripts broken by PyMongo upgrade.
+  The issue started when pymongo was updated from 3.12.1
+  to 4.5.0 (commit 8d4c6d4).
+
+* Merge pull request #1166 from oh2fih/mongodb-lazy-load. [PT]
+
+* Lib: lazy-load MongoDB in AuthenticationHandler. [Esa Jokinen]
+
+  Defer MongoDB connection creation until first use to avoid
+  establishing connections in the Gunicorn master process before
+  worker forking.
+
+* Merge pull request #1165 from oh2fih/test-db-fixture. [PT]
+
+* Ci(tests): expand MongoDB matrix to cover LTS and latest. [Esa Jokinen]
+
+  Add MongoDB 6.0 and 8.0 to the test matrix while keeping 4.4,
+  ensuring CI tests cover older LTS, current LTS, and the latest
+  MongoDB release for compatibility.
+
+* Test(db): use dedicated test database with fixture. [Esa Jokinen]
+
+  Use a separate test database for all DB tests. A session-scoped
+  pytest fixture ensures the database is cleaned and populated with
+  test data before tests run. CLI subprocesses also use the test DB,
+  allowing local and GitHub tests to run consistently.
+
+* Merge pull request #1164 from oh2fih/mongodb-lazy-load. [PT]
+
+* Lib: simplify DatabaseLayer with safe aggregation pipelines. [Esa Jokinen]
+
+  Replace MongoDB version checks with safe_aggregate(), which tries
+  allowDiskUse=True and falls back on older MongoDB servers. Construct
+  aggregation pipelines in functions to simplify query logic, preserving
+  sorting, limits, and skips. Remove repetitive conditionals and lazy
+  MongoDB version handling, improving readability and maintainability.
+
+* Lib: lazy-load MongoDB connections and collections. [Esa Jokinen]
+
+  Refactor DatabaseLayer to use lazy-loaded proxies for the database
+  and collections. MongoClient, collection objects, and MongoDB
+  version retrievals are now only created when first accessed.
+
+* Web: lazy-load DatabaseHandler in Flask integration. [Esa Jokinen]
+
+  Wrap DatabaseHandler in a LazyDatabaseHandler so the real connection
+  is only created when first accessed. Update FlaskDatabaseHandler to
+  use the lazy version, deferring MongoClient creation until needed.
+
+* Web: defer CveXplore initialization to requests. [Esa Jokinen]
+
+  Move CveXplore creation into a before_first_request hook to ensure
+  MongoClient is created after the process fork, avoiding PyMongo
+  warnings. MongoDB settings are passed via environment variables.
+
+* Web: pass MongoDB config to CveXplore via env vars. [Esa Jokinen]
+
+  Avoid deprecated constructor argument; CveXplore now reads
+  MongoDB settings from environment variables
+
+* Merge pull request #1163 from oh2fih/fix_capeclookup_with_multiple_cwe. [PT]
+
+* Fix handling of CWE as a list in CAPEC lookups. [Esa Jokinen]
+
+  CWE values were previously assumed to be strings, but they were
+  changed to a list in CveXplore v0.3.37. This change iterates over
+  CWE lists correctly, fixing the crash and producing combined CAPEC
+  results from all CWE entries.
+
+* Merge pull request #1159 from oh2fih/fix-db-config-passing. [PT]
+
+  Fix MongoDB configuration: correct URI construction & pass DnsSrvRecord
+
+* Test: centralized config parsing in lib/Config.py. [Esa Jokinen]
+
+  Adds a unit test to prevent ConfigParser or readSetting() usage
+  outside lib/Config.py. Enforces use of the Configuration class.
+
+* Fix(mongodb): centralize configuration parsing in Config.py. [Esa Jokinen]
+
+  - Configuration was redundantly parsed in the MongoDB plugin.
+  - The getMongoUri() method in Config.py was not being used.
+  - All configuration parsing is now done in Config.py.
+  - Both the database plugin and the database handler now rely
+    on Config.py getters as an abstraction layer.
+
+* Config: fix MongoDB SRV URI construction. [Esa Jokinen]
+
+  - SRV records can be used without authentication.
+  - Include cluster-specific parameters in both
+    authenticated and unauthenticated SRV URIs.
+
+* Test: add unit tests for (fixed) MongoDB configuration. [Esa Jokinen]
+
+  - Parametrized tests for URI generation and env var setup
+  - Covers username/password and DNS SRV combinations
+  - Initialization helper clears the env between the tests
+  - Tests URL generation and environment passing to CveXplore
+  - SRV records can be used without authentication.
+  - Include cluster-specific parameters in both
+    authenticated and unauthenticated SRV URIs.
+
+* Config: pass DnsSrvRecord to CveXplore. [Esa Jokinen]
+
+  Set DATASOURCE_DBAPI=srv in the environment for CveXplore
+  when DnsSrvRecord is true in the configuration.
+
+* Config: unify MongoDB URI construction using helper getters. [Esa Jokinen]
+
+  - Added getMongoAuthDB() to complete helper coverage.
+  - getMongoUri() now uses helper methods for all components.
+  - Boolean SRV handling uses getMongoSrvBool().
+
+* Test: fix DeprecationWarning by using raw string (#1160) [Esa Jokinen]
+
+  Use a raw string for the search pattern in test_search.py
+  to avoid invalid escape sequence warnings with `\(`.
+
+* Improve SystemD units to support per-source database updates (#1156) [Esa Jokinen]
+
+  * Improve SystemD example units
+
+  Split the database update unit into template units that handle a
+  single source at a time, and introduce a target unit to orchestrate
+  updates across all sources. Retire separate db_repopulate.
+
+  Add explanatory comments to each unit for better documentation.
+
+  * Update documentation for improved SystemD units
+
+  Describe separation of database updates per source, both when calling
+  the updater script directly and when using the improved SystemD unit
+  structure. Clarify the optional nature of Redis caching.
+
+  * Remove dependencies for retired db_repopulate.service
+
+  * Update CPE Redis cache daily; not with every CPE update
+
+* Fix warning 'PEP 8 W605 invalid escape sequence' (#1152) [Martin W. Kirst]
+
+* Bump cvexplore from 0.3.38 to 0.3.39 (#1157) [Esa Jokinen]
+
+* Update EPSS URL (#1153) [Jerry Gamblin]
+
+* Upgrade cvexplore version to newest (#1144) [Paweł Cyrklaf]
+
+* Make the browse endpoint work with products with slashes in their name (#1145) [Maxime Huyghe]
+
+
 ## v5.2.0 (2025-03-17)
 
 ### Other
